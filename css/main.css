@@ -1,0 +1,99 @@
+:root {
+  --font-family: 'Montserrat', sans-serif;
+  --color-blue-1: #6D79EF;
+  --color-blue-2: #67AEFC;
+  --color-blue-3: #DAECFF;
+  --color-green: #75E169;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --content-width: 1170px;
+}
+
+body {
+  font-family: var(--font-family);
+}
+
+.container {
+  width: var(--content-width);
+  margin: 0 auto;
+}
+
+.header {
+  background-color: var(--color-blue-2);
+}
+
+.header__row {
+  height: 95px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__nav {
+  display: flex;
+  column-gap: 30px;
+  justify-content: end;
+}
+
+.nav__list {
+  display: flex;
+  column-gap: 35px;
+  align-items: center;
+}
+
+.nav__item {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: capitalize;
+  position: relative;
+}
+
+.nav__item::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-white);
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  transform: scaleX(0);
+  transition: 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.nav__item:hover::after {
+  transform: scaleX(1.05);
+}
+
+.header__btn.btn {
+  width: 170px;
+  height: 37.78px;
+  
+  background: var(--color-green);
+  border-radius: 5px;
+  color: var(--color-white);
+  border: 2px solid transparent;
+  transition: 0.1s;
+}
+
+.header__btn:hover {
+  border: 2px solid var(--color-white);
+}
+.header__btn:active {
+  background: var(--color-white);
+  color: var(--color-blue-2)
+}
+
+
+.btn {
+  width: 270px;
+  height: 60px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 15px;
+}
