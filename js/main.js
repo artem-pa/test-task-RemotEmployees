@@ -26,10 +26,10 @@ stagesBtn.addEventListener('click', (e) => {
   const stagesGap = parseInt(window.getComputedStyle(stagesList, null).gap);
 
   switch (e.target) {
-    case btnLeft:
+    case btnRight:
       currentCard < maxCard ? currentCard++ : currentCard = maxCard;
       break;
-    case btnRight:
+    case btnLeft:
       currentCard > 0 ? currentCard-- : currentCard = 0;
       break;
     default:
