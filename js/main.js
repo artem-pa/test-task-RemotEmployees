@@ -27,14 +27,10 @@ stagesBtn.addEventListener('click', (e) => {
 
   switch (e.target) {
     case btnLeft:
-      console.log(currentCard)
       currentCard < maxCard ? currentCard++ : currentCard = maxCard;
-      console.log('left')
-      console.log(currentCard)
       break;
     case btnRight:
       currentCard > 0 ? currentCard-- : currentCard = 0;
-      console.log('rght')
       break;
     default:
       return;
