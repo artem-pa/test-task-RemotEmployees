@@ -374,6 +374,7 @@ body {
   top: 300px;
   left: 23px;
 }
+
 .examples__decor .pic-02 {
   width: 108px;
   height: 108px;
@@ -434,6 +435,7 @@ body {
   font-size: 21px;
   line-height: 125%;
 }
+
 .examples__link p {
   font-weight: 400;
   font-size: 18px;
@@ -446,7 +448,49 @@ body {
 
 
 /* more-info section */
+.more-info {
+  padding: 135px 0 105px;
+  background: var(--color-white);
+  position: relative;
+}
 
+.more-info__decor .pic-01 {
+  width: 58px;
+  height: 58px;
+  background-image: url(../assets/image/examples/decor-02.png);
+  top: 150px;
+  left: 153px;
+}
+
+.more-info__row {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.more-info__info {
+  width: 55%;
+}
+
+.more-info__title {
+  margin-bottom: 53px;
+  text-align: start;
+}
+
+.more-info__text {
+  margin-bottom: 45px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: #111111;
+}
+
+
+.more-info__image {
+  width: 45%;
+  position: relative;
+  left: 70px;
+}
 
 
 
