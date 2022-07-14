@@ -38,3 +38,33 @@ stagesBtn.addEventListener('click', (e) => {
 
   stagesList.style.transform = `translateX(-${(stageWidth + stagesGap) * currentCard}px)`;
 })
+
+
+// CALLBACK SECTION
+const form = document.forms[0];
+const inputs = [form[0], form[1], form[2]];
+const formBtn = form[3];
+
+const formRegExp = [
+  /^[a-zA-ZА-я\є\Є\ї\Ї\і\І\ё\Ё\ \.\-]{3,}$/,
+  /^[\w-\ \.\-\@\/]{5,}$/,
+  /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/,
+];
+
+formBtn.addEventListener('click', e => {
+  e.preventDefault();
+  let isValid = true;
+  for (let i = 0; i < 3; i++) {
+    if (formRegExp[i].test(inputs[i].value)) continue;
+    inputs[i].classList.add('invalid');
+    isValid = false;
+  }
+  if (isValid) console.log('sending data...');
+})
+
+let b = 5;
+inputs.forEach ((input, i) => {
+  input.addEventListener('input', () => {
+    if (formRegExp[i].test(input.value)) input.classList.remove('invalid');
+  })
+})
