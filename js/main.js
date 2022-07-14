@@ -1,15 +1,14 @@
 // SERVICE SECTION //
-document.querySelectorAll('.service__item .switch').forEach(element => {
+document.querySelectorAll('.service__item .switch').forEach((element, i) => {
   element.addEventListener('click', () => {
+    const parent = element.closest('.service__item');
+    const text = document.querySelectorAll('.service__item .text')[i];
+    const height = parseInt(window.getComputedStyle(text, null).height);
+    parent.style.setProperty('--height', `${height + 121}px`);
+
     element.closest('.service__item').classList.toggle('open');
   })
 });
-
-document.querySelectorAll('.service__item .text').forEach(element => {
-  const parent = element.closest('.service__item');
-  const height = parseInt(window.getComputedStyle(element, null).height);
-  parent.style.setProperty('--height', `${height + 121}px`);
-})
 
 
 //STAGES SECTION //
@@ -63,7 +62,7 @@ formBtn.addEventListener('click', e => {
 })
 
 let b = 5;
-inputs.forEach ((input, i) => {
+inputs.forEach((input, i) => {
   input.addEventListener('input', () => {
     if (formRegExp[i].test(input.value)) input.classList.remove('invalid');
   })

@@ -10,6 +10,24 @@
   --content-width: min(1170px, calc(100vw - 2*20px));
 }
 
+* {
+  scrollbar-width: none;
+  scrollbar-color: var(--color-blue-1) var(--color-blue-3);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--color-blue-3);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-blue-1);
+  border-radius: 5px;
+}
+
 body {
   font-family: var(--font-family);
   overflow-y: overlay;
@@ -87,6 +105,10 @@ body {
   color: var(--color-blue-2)
 }
 
+.burger {
+  display: none;
+}
+
 
 /* promo section */
 .promo {
@@ -138,6 +160,7 @@ body {
 
 .promo__info {
   width: 50%;
+  z-index: 2;
 }
 
 .promo__title {
@@ -394,7 +417,8 @@ body {
 }
 
 .examples__item {
-  height: 447px;
+  --card-height: calc((var(--content-width) - 33px) / 2.35);
+  height: var(--card-height);
   border-radius: 15px;
   overflow: hidden;
   position: relative;
@@ -598,8 +622,9 @@ body {
 }
 
 .footer__row {
-  display: flex;
-  column-gap: 115px;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  column-gap: 105px;
   margin-bottom: 120px;
 }
 
@@ -621,6 +646,9 @@ body {
 .footer__link {
   height: 25px;
   transition: 0.2s;
+}
+.footer__link img {
+  height: 25px;
 }
 
 .footer__link:hover {
@@ -667,12 +695,6 @@ body {
   line-height: 175%;
   text-align: center;
 }
-
-
-
-
-
-
 
 /* common elements */
 
@@ -767,4 +789,51 @@ section h2 {
 
 .btn-right::after {
   --rotate: 45deg;
+}
+
+
+/* media queries */
+@media screen and (max-width: 1200px) {
+  .promo__info {
+    width: 65%;
+  }
+  .promo__cart {
+    width: 35%;
+    left: -150px;
+  }
+
+  .more-info__image {
+    left: -50px;
+  }
+
+  .callback {
+    padding: 180px 0 128px;
+  }
+  .callback__decor .pic-01 {
+    left: 0;
+  }
+  .callback__decor .pic-02 {
+    right: 25px;;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .header__btn.btn {
+    display: none;
+  }
+
+  .footer__row {
+    grid-template-columns: repeat(2, auto);
+  }
+  .footer__column:first-child {
+    grid-row: 1/3;
+    align-self: center;
+  }
+  .footer__column:last-child {
+    grid-column: 2; 
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
 }
