@@ -1,12 +1,11 @@
 // SERVICE SECTION //
 document.querySelectorAll('.service__item .switch').forEach((element, i) => {
   element.addEventListener('click', () => {
-    const parent = element.closest('.service__item');
     const text = document.querySelectorAll('.service__item .text')[i];
+    const bottom = document.querySelectorAll('.service__row-bottom')[i];
     const height = parseInt(window.getComputedStyle(text, null).height);
-    parent.style.setProperty('--height', `${height + 121}px`);
-
     element.closest('.service__item').classList.toggle('open');
+    bottom.style.setProperty('--height', `${height}px`);
   })
 });
 
@@ -16,8 +15,8 @@ let currentCard = 0;
 const stages = document.querySelectorAll('.stage');
 const stagesList = document.querySelector('.stages__list')
 const stagesBtn = document.querySelector('.stages__buttons');
-const btnRight = document.querySelector('.stages .btn-right');
-const btnLeft = document.querySelector('.stages .btn-left');
+const stageBtnRight = document.querySelector('.stages .btn-right');
+const stageBtnLeft = document.querySelector('.stages .btn-left');
 const maxCard = stages.length - 1;
 
 stagesBtn.addEventListener('click', (e) => {
@@ -25,10 +24,10 @@ stagesBtn.addEventListener('click', (e) => {
   const stagesGap = parseInt(window.getComputedStyle(stagesList, null).gap);
 
   switch (e.target) {
-    case btnRight:
+    case stageBtnRight:
       currentCard < maxCard ? currentCard++ : currentCard = maxCard;
       break;
-    case btnLeft:
+    case stageBtnLeft:
       currentCard > 0 ? currentCard-- : currentCard = 0;
       break;
     default:
@@ -36,6 +35,31 @@ stagesBtn.addEventListener('click', (e) => {
   }
 
   stagesList.style.transform = `translateX(-${(stageWidth + stagesGap) * currentCard}px)`;
+})
+
+
+// EXAMPLES SECTION
+let examplesStatus = false;
+const examples = document.querySelector('.examples__list');
+const examplesBtn = document.querySelector('.examples__buttons');
+const examplesBtnRight = document.querySelector('.examples .btn-right');
+const examplesBtnLeft = document.querySelector('.examples .btn-left');
+
+examplesBtn.addEventListener('click', e => {
+  switch (e.target) {
+    case examplesBtnRight:
+      if (examplesStatus) break;
+      examplesStatus = !examplesStatus;
+      examples.classList.add('moved')
+      break;
+    case examplesBtnLeft:
+      if (!examplesStatus) break;
+      examplesStatus = !examplesStatus;
+      examples.classList.remove('moved')
+      break;
+    default:
+      return;
+  }
 })
 
 
@@ -66,4 +90,15 @@ inputs.forEach((input, i) => {
   input.addEventListener('input', () => {
     if (formRegExp[i].test(input.value)) input.classList.remove('invalid');
   })
+})
+
+
+// BURGER
+const burger = document.querySelector('.burger');
+const navList = document.querySelector('.header__nav');
+
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  navList.classList.toggle('active');
+  document.body.classList.toggle('active');
 })
