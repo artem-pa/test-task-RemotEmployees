@@ -13,6 +13,7 @@
 * {
   scrollbar-width: none;
   scrollbar-color: var(--color-blue-1) var(--color-blue-3);
+  opacity: 1;
 }
 
 *::-webkit-scrollbar {
@@ -33,6 +34,7 @@ body {
   font-family: var(--font-family);
   overflow-y: overlay;
   overflow-x: hidden;
+  
 }
 
 section,
@@ -43,6 +45,10 @@ footer {
 .container {
   width: var(--content-width);
   margin: 0 auto;
+}
+
+.scroll-js {
+  transition: 0.5s;
 }
 
 

@@ -102,3 +102,27 @@ burger.addEventListener('click', () => {
   navList.classList.toggle('active');
   document.body.classList.toggle('active');
 })
+
+
+// SCROLL ANIMATION
+const scrollEl = document.querySelectorAll('.scroll-js');
+scrollEl.forEach(el => el.style.opacity = 0.01);
+
+const elementInView = (el) => {
+  const elementTop = el.getBoundingClientRect().top;
+  const percentageScroll = 80;
+
+  return (
+    elementTop <=
+    ((window.innerHeight || document.documentElement.clientHeight) * (percentageScroll / 100))
+  );
+};
+
+window.addEventListener('scroll', () => {
+  scrollEl.forEach((el) => {
+    if (elementInView(el)) {
+      el.style.opacity = 1;
+    }
+  })
+})
+
